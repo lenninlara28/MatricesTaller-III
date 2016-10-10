@@ -5,6 +5,10 @@
  */
 package interfaz;
 
+import clases.Helper;
+import javax.swing.JButton;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author hp 14
@@ -100,6 +104,11 @@ public class Principal extends javax.swing.JFrame {
         cmdCrear.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         cmdCrear.setForeground(new java.awt.Color(240, 240, 240));
         cmdCrear.setText("Crear");
+        cmdCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCrearActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 150, 220));
@@ -144,6 +153,39 @@ public class Principal extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(626, 528));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCrearActionPerformed
+        int nf, nc;
+        DefaultTableModel tm;
+        if (txtNumerodeFilas.getText().trim().isEmpty()) {
+            Helper.mensaje(this, "Digite El Numero De Filas ", 2);
+            txtNumerodeFilas.requestFocusInWindow();
+        } else if (txtNumerodeColumnas.getText().trim().isEmpty()) {
+            Helper.mensaje(this, "Digite El Numero De Columnas ", 2);
+            txtNumerodeColumnas.requestFocusInWindow();
+        } else {
+            nf = Integer.parseInt(txtNumerodeFilas.getText());
+            nc = Integer.parseInt(txtNumerodeColumnas.getText());
+            if (nf == 0) {
+                Helper.mensaje(this, "Numero De Filas No Puede Ser Cero", 3);
+                txtNumerodeFilas.requestFocusInWindow();
+            } else if (nc == 0) {
+                Helper.mensaje(this, "Numero De Columnas No Puede Ser Cero", 3);
+                txtNumerodeColumnas.requestFocusInWindow();
+            } else if (nc > 13) {
+                Helper.mensaje(this, "El Numero De Columnas No Puede Ser Mayor A 13", 2);
+                txtNumerodeColumnas.requestFocusInWindow();
+            } else {
+                tm = (DefaultTableModel) tblTablaInicial.getModel();
+                tm.setRowCount(nf);
+                tm.setColumnCount(nc);
+                JButton botonesH[] = {cmdLlenarManual, cmdLlenarAutomatico, cmdLimpiar};
+                JButton botonesD[] = {cmdCrear, cmdOperacion};
+                Helper.habilitarBotones(botonesH);
+                Helper.deshabilitarBotones(botonesD);
+            }
+        }
+    }//GEN-LAST:event_cmdCrearActionPerformed
 
     /**
      * @param args the command line arguments
