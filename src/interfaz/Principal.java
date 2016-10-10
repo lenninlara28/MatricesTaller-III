@@ -7,6 +7,7 @@ package interfaz;
 
 import clases.Helper;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -40,10 +41,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         cmdLimpiar = new javax.swing.JButton();
-        cmdOperacion = new javax.swing.JButton();
+        cmdRecorrer = new javax.swing.JButton();
         cmdLlenarAutomatico = new javax.swing.JButton();
         cmdLlenarManual = new javax.swing.JButton();
         cmdCrear = new javax.swing.JButton();
+        cmbRecorrido = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTablaInicial = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
@@ -80,25 +82,40 @@ public class Principal extends javax.swing.JFrame {
         cmdLimpiar.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         cmdLimpiar.setForeground(new java.awt.Color(240, 240, 240));
         cmdLimpiar.setText("Limpiar");
-        jPanel3.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+        cmdLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
-        cmdOperacion.setBackground(new java.awt.Color(0, 0, 0));
-        cmdOperacion.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        cmdOperacion.setForeground(new java.awt.Color(240, 240, 240));
-        cmdOperacion.setText("Recorrer");
-        jPanel3.add(cmdOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+        cmdRecorrer.setBackground(new java.awt.Color(0, 0, 0));
+        cmdRecorrer.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        cmdRecorrer.setForeground(new java.awt.Color(240, 240, 240));
+        cmdRecorrer.setText("Recorrer");
+        jPanel3.add(cmdRecorrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         cmdLlenarAutomatico.setBackground(new java.awt.Color(0, 0, 0));
         cmdLlenarAutomatico.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         cmdLlenarAutomatico.setForeground(new java.awt.Color(240, 240, 240));
         cmdLlenarAutomatico.setText("Automatico");
-        jPanel3.add(cmdLlenarAutomatico, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        cmdLlenarAutomatico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLlenarAutomaticoActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cmdLlenarAutomatico, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         cmdLlenarManual.setBackground(new java.awt.Color(0, 0, 0));
         cmdLlenarManual.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         cmdLlenarManual.setForeground(new java.awt.Color(240, 240, 240));
         cmdLlenarManual.setText("Manual");
-        jPanel3.add(cmdLlenarManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        cmdLlenarManual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLlenarManualActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cmdLlenarManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         cmdCrear.setBackground(new java.awt.Color(0, 0, 0));
         cmdCrear.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
@@ -111,7 +128,13 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel3.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 150, 220));
+        cmbRecorrido.setBackground(new java.awt.Color(0, 0, 0));
+        cmbRecorrido.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        cmbRecorrido.setForeground(new java.awt.Color(255, 255, 255));
+        cmbRecorrido.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Recorrido 1", "Recorrido 2", "Recorrido 3", "Recorrido 4", "Recorrido 5" }));
+        jPanel3.add(cmbRecorrido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 150, 250));
 
         tblTablaInicial.setBackground(new java.awt.Color(240, 240, 240));
         tblTablaInicial.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -125,7 +148,7 @@ public class Principal extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblTablaInicial);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 350, 210));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 350, 230));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado"));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -137,20 +160,22 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 500, 80));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 550, 120));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 550, 120));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(626, 528));
+        setSize(new java.awt.Dimension(626, 567));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -180,12 +205,79 @@ public class Principal extends javax.swing.JFrame {
                 tm.setRowCount(nf);
                 tm.setColumnCount(nc);
                 JButton botonesH[] = {cmdLlenarManual, cmdLlenarAutomatico, cmdLimpiar};
-                JButton botonesD[] = {cmdCrear, cmdOperacion};
+                JButton botonesD[] = {cmdCrear, cmdRecorrer};
                 Helper.habilitarBotones(botonesH);
                 Helper.deshabilitarBotones(botonesD);
             }
         }
     }//GEN-LAST:event_cmdCrearActionPerformed
+
+    private void cmdLlenarManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenarManualActionPerformed
+        int nf, nc, n;
+        boolean aux = true;
+        int sw, res;
+        nf = tblTablaInicial.getRowCount();
+        nc = tblTablaInicial.getColumnCount();
+
+        for (int i = 0; i < nf; i++) {
+            for (int j = 0; j < nc; j++) {
+                do {
+                    sw = 1;
+                    try {
+                        n = Integer.parseInt(JOptionPane.showInputDialog(this, "Digite el elemento en la posicion[" + i + "] " + " [" + j + "]").trim());
+                        tblTablaInicial.setValueAt(n, i, j);
+                    } catch (NumberFormatException e) {
+                        Helper.mensaje(this, "Digite un numero valido", 2);
+                        sw = 0;
+                    } catch (NullPointerException e) {
+                        res = JOptionPane.showConfirmDialog(this, "¿seguro que deseas salir?", "Salir", JOptionPane.YES_NO_OPTION);
+                        if (res == 0) {
+                            sw = 1;
+                            i = nf;
+                            j = nc;
+                            aux = false;
+                            JButton botonesH[] = {cmdCrear, cmdLimpiar};
+                            Helper.habilitarBotones(botonesH);
+                        } else {
+                            sw = 0;
+                        }
+                    }
+                } while (sw == 0);
+            }
+        }
+        cmdRecorrer.setEnabled(aux);
+        JButton botonesD[] = {cmdLlenarManual, cmdLlenarAutomatico};
+        Helper.deshabilitarBotones(botonesD);
+    }//GEN-LAST:event_cmdLlenarManualActionPerformed
+
+    private void cmdLlenarAutomaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenarAutomaticoActionPerformed
+        int nf, nc, n;
+        nc = tblTablaInicial.getColumnCount();
+        nf = tblTablaInicial.getRowCount();
+        for (int i = 0; i < nf; i++) {
+            for (int j = 0; j < nc; j++) {
+                n = (int) (Math.random() * 50 + 1);
+                tblTablaInicial.setValueAt(n, i, j);
+            }
+        }
+        JButton botonesH[] = {cmdRecorrer, cmdLimpiar};
+        JButton botonesD[] = {cmdCrear, cmdLlenarManual, cmdLlenarAutomatico};
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
+    }//GEN-LAST:event_cmdLlenarAutomaticoActionPerformed
+
+    private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
+       txtNumerodeFilas.setText("");
+        txtNumerodeColumnas.setText("");
+        txtNumerodeFilas.requestFocusInWindow();
+        cmbRecorrido.setSelectedIndex(0);
+        txtResultado.setText("");
+        Helper.porDefectoTabla(tblTablaInicial);
+        JButton botonesH[] = {cmdCrear, cmdLimpiar};
+        JButton botonesD[] = {cmdLlenarManual, cmdLlenarAutomatico, cmdRecorrer};
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
+    }//GEN-LAST:event_cmdLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,11 +315,12 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cmbRecorrido;
     private javax.swing.JButton cmdCrear;
     private javax.swing.JButton cmdLimpiar;
     private javax.swing.JButton cmdLlenarAutomatico;
     private javax.swing.JButton cmdLlenarManual;
-    private javax.swing.JButton cmdOperacion;
+    private javax.swing.JButton cmdRecorrer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
