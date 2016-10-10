@@ -56,6 +56,12 @@ public class Helper {
 
         }
     }
+    public static void habilitarBotones(JButton[] botones,boolean aux) {
+        for (int i = 0; i < botones.length; i++) {
+            botones[i].setEnabled(aux);
+
+        }
+    }
 
     public static void deshabilitarBotones(JButton[] botones) {
         for (int i = 0; i < botones.length; i++) {

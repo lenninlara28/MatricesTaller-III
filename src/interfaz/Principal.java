@@ -21,9 +21,10 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
-        JButton botonesH[]={cmdCrear, cmdLimpiar};
-        JButton botonesD[]={cmdLlenarManual,cmdLlenarAutomatico,cmdRecorridoUno,cmdRecorridoDos};
-        
+        JButton botonesH[] = {cmdCrear, cmdLimpiar};
+        JButton botonesD[] = {cmdLlenarManual, cmdLlenarAutomatico, cmdRecorridoUno,
+            cmdRecorridoDos, cmdRecorridoTres, cmdRecorridoCuatro, cmdRecorridoCinco};
+
         Helper.habilitarBotones(botonesH);
         Helper.deshabilitarBotones(botonesD);
     }
@@ -38,10 +39,11 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        cmdRecorridoDos = new javax.swing.JButton();
         cmdRecorridoUno = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        cmdRecorridoDos = new javax.swing.JButton();
+        cmdRecorridoTres = new javax.swing.JButton();
+        cmdRecorridoCuatro = new javax.swing.JButton();
+        cmdRecorridoCinco = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -58,11 +60,26 @@ public class Principal extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
-        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("RECORRIDOS CON MATRICES");
+        setAlwaysOnTop(true);
+        setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cmdRecorridoUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recorridouno.png"))); // NOI18N
+        cmdRecorridoUno.setBorder(null);
+        cmdRecorridoUno.setBorderPainted(false);
+        cmdRecorridoUno.setContentAreaFilled(false);
+        cmdRecorridoUno.setFocusable(false);
+        cmdRecorridoUno.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recorridouno1.png"))); // NOI18N
+        cmdRecorridoUno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdRecorridoUnoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdRecorridoUno, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 190, 170));
 
         cmdRecorridoDos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recorridodos.png"))); // NOI18N
         cmdRecorridoDos.setBorder(null);
@@ -76,26 +93,31 @@ public class Principal extends javax.swing.JFrame {
                 cmdRecorridoDosActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdRecorridoDos, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 140, 180, 160));
+        jPanel1.add(cmdRecorridoDos, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, 200, 170));
 
-        cmdRecorridoUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recorridouno.png"))); // NOI18N
-        cmdRecorridoUno.setBorder(null);
-        cmdRecorridoUno.setBorderPainted(false);
-        cmdRecorridoUno.setContentAreaFilled(false);
-        cmdRecorridoUno.setFocusable(false);
-        cmdRecorridoUno.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recorridouno1.png"))); // NOI18N
-        cmdRecorridoUno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdRecorridoUnoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(cmdRecorridoUno, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 180, 160));
+        cmdRecorridoTres.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recorridotres.png"))); // NOI18N
+        cmdRecorridoTres.setBorder(null);
+        cmdRecorridoTres.setBorderPainted(false);
+        cmdRecorridoTres.setContentAreaFilled(false);
+        cmdRecorridoTres.setFocusable(false);
+        cmdRecorridoTres.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recorridotres1.png"))); // NOI18N
+        jPanel1.add(cmdRecorridoTres, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, 210, 180));
 
-        jButton3.setText("jButton1");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 140, 130));
+        cmdRecorridoCuatro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recorrido4.png"))); // NOI18N
+        cmdRecorridoCuatro.setBorder(null);
+        cmdRecorridoCuatro.setBorderPainted(false);
+        cmdRecorridoCuatro.setContentAreaFilled(false);
+        cmdRecorridoCuatro.setFocusable(false);
+        cmdRecorridoCuatro.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recorrido4.1.png"))); // NOI18N
+        jPanel1.add(cmdRecorridoCuatro, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 310, 210, 170));
 
-        jButton4.setText("jButton1");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 410, 140, 130));
+        cmdRecorridoCinco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recorrido5.png"))); // NOI18N
+        cmdRecorridoCinco.setBorder(null);
+        cmdRecorridoCinco.setBorderPainted(false);
+        cmdRecorridoCinco.setContentAreaFilled(false);
+        cmdRecorridoCinco.setFocusable(false);
+        cmdRecorridoCinco.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recorrido5.1.png"))); // NOI18N
+        jPanel1.add(cmdRecorridoCinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 480, -1, 170));
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         jLabel1.setText("RECORRIDOS CON MATRICES");
@@ -176,7 +198,7 @@ public class Principal extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblTablaInicial);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 350, 230));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 350, 230));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado"));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -186,25 +208,22 @@ public class Principal extends javax.swing.JFrame {
         txtResultado.setRows(5);
         jScrollPane3.setViewportView(txtResultado);
 
-        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 500, 80));
+        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 560, 110));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 550, 120));
-
-        jButton5.setText("jButton1");
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, 140, 130));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 630, 140));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 913, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 964, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(929, 610));
+        pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -244,6 +263,7 @@ public class Principal extends javax.swing.JFrame {
     private void cmdLlenarManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenarManualActionPerformed
         int nf, nc, n;
         int sw, res;
+        boolean aux = true;
         nf = tblTablaInicial.getRowCount();
         nc = tblTablaInicial.getColumnCount();
 
@@ -263,6 +283,7 @@ public class Principal extends javax.swing.JFrame {
                             sw = 1;
                             i = nf;
                             j = nc;
+                            aux = false;
                             JButton botonesH[] = {cmdCrear, cmdLimpiar};
                             Helper.habilitarBotones(botonesH);
                         } else {
@@ -272,10 +293,10 @@ public class Principal extends javax.swing.JFrame {
                 } while (sw == 0);
             }
         }
-        JButton botonesH[] = {cmdRecorridoUno,cmdRecorridoDos};
+        JButton botonesH[] = {cmdRecorridoUno, cmdRecorridoDos, cmdRecorridoTres, cmdRecorridoCuatro, cmdRecorridoCinco};
         JButton botonesD[] = {cmdLlenarManual, cmdLlenarAutomatico};
         Helper.deshabilitarBotones(botonesD);
-        Helper.habilitarBotones(botonesH);
+        Helper.habilitarBotones(botonesH, aux);
     }//GEN-LAST:event_cmdLlenarManualActionPerformed
 
     private void cmdLlenarAutomaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenarAutomaticoActionPerformed
@@ -288,7 +309,7 @@ public class Principal extends javax.swing.JFrame {
                 tblTablaInicial.setValueAt(n, i, j);
             }
         }
-        JButton botonesH[] = {cmdLimpiar,cmdRecorridoUno,cmdRecorridoDos};
+        JButton botonesH[] = {cmdLimpiar, cmdRecorridoUno, cmdRecorridoDos, cmdRecorridoTres, cmdRecorridoCuatro, cmdRecorridoCinco};
         JButton botonesD[] = {cmdCrear, cmdLlenarManual, cmdLlenarAutomatico};
         Helper.habilitarBotones(botonesH);
         Helper.deshabilitarBotones(botonesD);
@@ -301,7 +322,8 @@ public class Principal extends javax.swing.JFrame {
         txtResultado.setText("");
         Helper.porDefectoTabla(tblTablaInicial);
         JButton botonesH[] = {cmdCrear, cmdLimpiar};
-        JButton botonesD[] = {cmdLlenarManual, cmdLlenarAutomatico,cmdRecorridoUno,cmdRecorridoDos};
+        JButton botonesD[] = {cmdLlenarManual, cmdLlenarAutomatico, cmdRecorridoUno,
+            cmdRecorridoDos, cmdRecorridoTres, cmdRecorridoCuatro, cmdRecorridoCinco};
         Helper.habilitarBotones(botonesH);
         Helper.deshabilitarBotones(botonesD);
     }//GEN-LAST:event_cmdLimpiarActionPerformed
@@ -311,7 +333,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdRecorridoUnoActionPerformed
 
     private void cmdRecorridoDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRecorridoDosActionPerformed
-       txtResultado.setText(Helper.recorridoDos(tblTablaInicial));
+        txtResultado.setText(Helper.recorridoDos(tblTablaInicial));
     }//GEN-LAST:event_cmdRecorridoDosActionPerformed
 
     /**
@@ -354,11 +376,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton cmdLimpiar;
     private javax.swing.JButton cmdLlenarAutomatico;
     private javax.swing.JButton cmdLlenarManual;
+    private javax.swing.JButton cmdRecorridoCinco;
+    private javax.swing.JButton cmdRecorridoCuatro;
     private javax.swing.JButton cmdRecorridoDos;
+    private javax.swing.JButton cmdRecorridoTres;
     private javax.swing.JButton cmdRecorridoUno;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
