@@ -19,6 +19,8 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
+    int nf, nc;
+
     public Principal() {
         initComponents();
         JButton botonesH[] = {cmdCrear, cmdLimpiar};
@@ -243,7 +245,6 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCrearActionPerformed
-        int nf, nc;
         DefaultTableModel tm;
         if (txtNumerodeFilas.getText().trim().isEmpty()) {
             Helper.mensaje(this, "Digite El Numero De Filas ", 2);
@@ -344,23 +345,57 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdLimpiarActionPerformed
 
     private void cmdRecorridoUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRecorridoUnoActionPerformed
-        txtResultado.setText(Helper.recorridoUno(tblTablaInicial));
+        if (nf != nc) {
+            Helper.mensaje(this, "Para Que Todos Los Recorridos Se Den \n"
+                    + "El Numero De Filas Y Columnas Deben Ser Iguales", 2);
+        } else if (nf < 5 || nf > 13) {
+            Helper.mensaje(this, "Para Que Todos Los Recorridos Se Den \n"
+                    + "El Numero De Filas Y Columnas Debe Ser Mayor o Igual a 5 Y Menor O Igual A 13", 2);
+        } else {
+            txtResultado.setText(Helper.recorridoUno(tblTablaInicial));
+        }
     }//GEN-LAST:event_cmdRecorridoUnoActionPerformed
 
     private void cmdRecorridoDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRecorridoDosActionPerformed
-        txtResultado.setText(Helper.recorridoDos(tblTablaInicial));
+        if (nf != nc) {
+            Helper.mensaje(this, "Para Que Todos Los Recorridos Se Den \n"
+                    + "El Numero De Filas Y Columnas Deben Ser Iguales", 2);
+        } else if (nf < 5 || nf > 13) {
+            Helper.mensaje(this, "Para Que Todos Los Recorridos Se Den \n"
+                    + "El Numero De Filas Y Columnas Debe Ser Mayor o Igual a 5 Y Menor O Igual A 13", 2);
+        } else {
+            txtResultado.setText(Helper.recorridoDos(tblTablaInicial));
+        }
     }//GEN-LAST:event_cmdRecorridoDosActionPerformed
 
     private void cmdRecorridoTresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRecorridoTresActionPerformed
-       //txtResultado.setText(Helper.recorridoTres(tblTablaInicial));
+        //txtResultado.setText(Helper.recorridoTres(tblTablaInicial));
     }//GEN-LAST:event_cmdRecorridoTresActionPerformed
 
     private void cmdRecorridoCuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRecorridoCuatroActionPerformed
-        txtResultado.setText(Helper.recorridoCuatro(tblTablaInicial));
+        if (nf != nc) {
+            Helper.mensaje(this, "Para Que Todos Los Recorridos Se Den \n"
+                    + "El Numero De Filas Y Columnas Deben Ser Iguales", 2);
+        } else if (nf < 5 || nf > 13) {
+            Helper.mensaje(this, "Para Que Todos Los Recorridos Se Den \n"
+                    + "El Numero De Filas Y Columnas Debe Ser Mayor o Igual a 5 Y Menor O Igual A 13", 2);
+        } else {
+            txtResultado.setText(Helper.recorridoCuatro(tblTablaInicial));
+        }
     }//GEN-LAST:event_cmdRecorridoCuatroActionPerformed
 
     private void cmdRecorridoCincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRecorridoCincoActionPerformed
-        txtResultado.setText(Helper.recorridoCinco(tblTablaInicial));
+        if (nf != nc) {
+            Helper.mensaje(this, "Para Que Todos Los Recorridos Se Den \n"
+                    + "El Numero De Filas Y Columnas Deben Ser Iguales", 2);
+        } else if (nf < 5 || nf > 13) {
+            Helper.mensaje(this, "Para Que Todos Los Recorridos Se Den \n"
+                    + "El Numero De Filas Y Columnas Debe Ser Mayor o Igual a 5 Y Menor O Igual A 13", 2);
+        } else if (nf % 2 == 0) {
+            Helper.mensaje(this, "Para Que Este Recorrido Se De El Numero De Filas Y Columnas Deben Ser Impares", 2);
+        } else {
+            txtResultado.setText(Helper.recorridoCinco(tblTablaInicial));
+        }
     }//GEN-LAST:event_cmdRecorridoCincoActionPerformed
 
     /**

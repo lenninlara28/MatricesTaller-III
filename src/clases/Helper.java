@@ -207,15 +207,12 @@ public class Helper {
     }
 
     public static String recorridoDiagonalSecundariaArriba(int[][] m, int in, int fin) {
-
         int nc = m[0].length;
         String aux = "";
         for (int i = in; i >= fin; i--) {
             aux = aux + m[i][nc - 1 - i] + ", ";
-
         }
         return aux;
-
     }
 
     public static String recorridoCuatro(JTable tabla1) {
