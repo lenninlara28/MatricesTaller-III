@@ -381,7 +381,14 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdRecorridoDosActionPerformed
 
     private void cmdRecorridoTresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRecorridoTresActionPerformed
-        //txtResultado.setText(Helper.recorridoTres(tblTablaInicial));
+        if (nf != nc) {
+            Helper.mensaje(this, "Para Que Todos Los Recorridos Se Den \n"
+                    + "El Numero De Filas Y Columnas Deben Ser Iguales", 2);
+        } else if (nf % 2 != 0) {
+            Helper.mensaje(this, "Para Que Este Recorrido Se De, El Numero De Filas Y De Columnas Deben Ser Par", 2);
+        } else {
+            txtResultado.setText(Helper.recorridoTres(tblTablaInicial));
+        }
     }//GEN-LAST:event_cmdRecorridoTresActionPerformed
 
     private void cmdRecorridoCuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRecorridoCuatroActionPerformed
@@ -411,7 +418,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdRecorridoCincoActionPerformed
 
     private void txtNumerodeFilasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumerodeFilasKeyTyped
-       char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             getToolkit().beep();
             evt.consume();

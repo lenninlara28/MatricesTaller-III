@@ -189,6 +189,24 @@ public class Helper {
         return aux;
     }
 
+    public static String recorridoTres(JTable tabla1) {
+        int[][] m = pasoDeDatos(tabla1);
+        int nf = m.length;
+        int nc = m[0].length;
+        String aux = "";
+        for (int i = 0; i < nf / 2; i++) {
+            aux = aux + Helper.recorridoHaciaDerecha(m, (nf - 1) / 2 - i, (nc - 1) / 2 - i, (nc - 1) / 2 + i + 1);
+            aux = aux + Helper.recorridoHaciaAbajo(m, ((nc - 1) / 2) + i + 1, ((nf - 1) / 2) - (i + 1 - 2), ((nf - 1) / 2 + i + 1));
+            aux = aux + Helper.recorridoHaciaIzquierda(m, ((nf - 1) / 2 + (i + 1)), ((nc - 1) / 2) + i, ((nc - 1) / 2) - i);
+            if (i < ((nf - 1) / 2)) {
+                aux = aux + Helper.recorridoHaciaArriba(m, ((nc - 1) / 2) - (i + 1), ((nf - 1) / 2) + (i + 1), ((nf - 1) / 2) - i);
+            } else {
+            }
+        }
+        aux = aux.substring(0, aux.length() - 2) + ".";
+        return aux;
+    }
+
     public static String recorridoDiagonalSecundariaAbajo(int[][] m, int in, int fin) {
         int nc = m[0].length;
         String aux = "";
