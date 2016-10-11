@@ -101,6 +101,11 @@ public class Principal extends javax.swing.JFrame {
         cmdRecorridoTres.setContentAreaFilled(false);
         cmdRecorridoTres.setFocusable(false);
         cmdRecorridoTres.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recorridotres1.png"))); // NOI18N
+        cmdRecorridoTres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdRecorridoTresActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdRecorridoTres, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, 210, 180));
 
         cmdRecorridoCuatro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recorrido4.png"))); // NOI18N
@@ -109,6 +114,11 @@ public class Principal extends javax.swing.JFrame {
         cmdRecorridoCuatro.setContentAreaFilled(false);
         cmdRecorridoCuatro.setFocusable(false);
         cmdRecorridoCuatro.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recorrido4.1.png"))); // NOI18N
+        cmdRecorridoCuatro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdRecorridoCuatroActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdRecorridoCuatro, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 310, 210, 170));
 
         cmdRecorridoCinco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recorrido5.png"))); // NOI18N
@@ -117,6 +127,11 @@ public class Principal extends javax.swing.JFrame {
         cmdRecorridoCinco.setContentAreaFilled(false);
         cmdRecorridoCinco.setFocusable(false);
         cmdRecorridoCinco.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recorrido5.1.png"))); // NOI18N
+        cmdRecorridoCinco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdRecorridoCincoActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdRecorridoCinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 480, -1, 170));
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
@@ -335,6 +350,18 @@ public class Principal extends javax.swing.JFrame {
     private void cmdRecorridoDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRecorridoDosActionPerformed
         txtResultado.setText(Helper.recorridoDos(tblTablaInicial));
     }//GEN-LAST:event_cmdRecorridoDosActionPerformed
+
+    private void cmdRecorridoTresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRecorridoTresActionPerformed
+       //txtResultado.setText(Helper.recorridoTres(tblTablaInicial));
+    }//GEN-LAST:event_cmdRecorridoTresActionPerformed
+
+    private void cmdRecorridoCuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRecorridoCuatroActionPerformed
+        txtResultado.setText(Helper.recorridoCuatro(tblTablaInicial));
+    }//GEN-LAST:event_cmdRecorridoCuatroActionPerformed
+
+    private void cmdRecorridoCincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRecorridoCincoActionPerformed
+        txtResultado.setText(Helper.recorridoCinco(tblTablaInicial));
+    }//GEN-LAST:event_cmdRecorridoCincoActionPerformed
 
     /**
      * @param args the command line arguments
